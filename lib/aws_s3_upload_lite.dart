@@ -57,13 +57,15 @@ class AwsS3 {
 
     /// Additional metadata to be attached to the upload
     Map<String, String>? metadata,
+
+    required String endPoint
   }) async {
     try {
       var httpStr = 'http';
       if (useSSL) {
         httpStr += 's';
       }
-      final endpoint = '$httpStr://$bucket.s3.$region.amazonaws.com';
+      final endpoint = endPoint;
 
       String? uploadKey;
 
@@ -182,6 +184,8 @@ class AwsS3 {
 
     /// Additional metadata to be attached to the upload
     Map<String, String>? metadata,
+
+    required String endPoint
   }) async {
     try {
       var httpStr = 'http';
@@ -189,7 +193,7 @@ class AwsS3 {
         httpStr += 's';
       }
 
-      final endpoint = '$httpStr://$bucket.s3.$region.amazonaws.com';
+      final endpoint = endPoint;
 
       String? uploadKey;
 
@@ -297,6 +301,8 @@ class AwsS3 {
       /// Additional metadata to be attached to the upload
       Map<String, String>? metadata,
 
+      required String endPoint,
+
       /// On Upload Progress Callback Function
       required OnUploadProgressCallback? onUploadProgress}) async {
     try {
@@ -305,7 +311,7 @@ class AwsS3 {
         httpStr += 's';
       }
 
-      final endpoint = '$httpStr://$bucket.s3.$region.amazonaws.com';
+      final endpoint = endPoint;
 
       String? uploadKey;
 
